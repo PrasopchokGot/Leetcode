@@ -54,4 +54,5 @@ b.left = d;
 b.right = e;
 c.right = f;
 
+console.log(a)
 console.log(depthFirstValues_recursive(a))
