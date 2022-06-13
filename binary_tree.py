@@ -19,17 +19,20 @@ def depth_first_value(root):
         result.append(current.val)
     return result
 
-a = Node('a')
-b = Node('b')
-c = Node('c')
-d = Node('d')
-e = Node('e')
-f = Node('f')
+def depth_first_value_recursive(root):
+    if root == None: 
+        return []
 
-a.left = b
-a.right = c
-b.left = d
-b.right = e
+    left_value = depth_first_value_recursive(root.left)
+    right_value = depth_first_value_recursive(root.right)
+
+    return [root.val, *left_value, *right_value]
+
+a, b, c, d, e, f = (Node('a'), Node('b'), Node('c'), 
+                    Node('d'), Node('e'), Node('f'))
+
+a.left, a.right = (b, c)
+b.left, b.right = (d, e)
 c.right = f
 
-print(depth_first_value(a))
+print(depth_first_value(a) == depth_first_value_recursive(a))
