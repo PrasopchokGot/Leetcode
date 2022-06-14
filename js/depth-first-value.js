@@ -1,10 +1,10 @@
 import {Node} from './Node.js'
 
 const depthFirstValues = root => {
-    if (root == null) return []
+    if (root == null) return [];
 
-    const result = []
-    const stack = [root]
+    const result = [];
+    const stack = [root];
     while (stack.length > 0) {
         const current = stack.pop();
         result.push(current.val);
@@ -13,17 +13,17 @@ const depthFirstValues = root => {
         if (current.right) {stack.push(current.right)}
         if (current.left) {stack.push(current.left)}
     }
-    return result
+    return result;
 };
 
 const depthFirstValues_recursive = root => {
-    if (root == null) return []
+    if (root == null) return [];
 
     const leftValue = depthFirstValues_recursive(root.left);
     const rightValue = depthFirstValues_recursive(root.right);
     
     // Order: Right to Left
-    return [root.val, ...rightValue, ...leftValue]
+    return [root.val, ...rightValue, ...leftValue];
 }
 
 const a = new Node('a');
@@ -46,4 +46,4 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-console.log(depthFirstValues_recursive(a))
+console.log(depthFirstValues_recursive(a));
