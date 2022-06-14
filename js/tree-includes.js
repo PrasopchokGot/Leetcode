@@ -12,6 +12,12 @@ const treeIncludes = (root, target) => {
     return false;
 };
 
+const treeIncludesRecursive = (root, target) =>{
+    if (root == null) return false;
+    if (root.val == target) return true;
+    return treeIncludesRecursive(root.left, target) || treeIncludesRecursive(root.right, target);
+};
+
 const a = new Node('a');
 const b = new Node('b');
 const c = new Node('c');
@@ -23,4 +29,4 @@ const f = new Node('f');
 [b.left, b.right] = [d, e];
 c.right = f;
 
-console.log(treeIncludes(a, 'j'));
+console.log(treeIncludesRecursive(a, 'b') == treeIncludes(a, 'b'));
