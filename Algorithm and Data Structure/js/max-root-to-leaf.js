@@ -18,4 +18,6 @@ const f = new Node(1);
 [b.left, b.right] = [d, e];
 c.right = f;
 
+bo
 console.log(maxPath(a))
+console.log(Boolean(a.left) + Boolean(a.right))
